@@ -4,7 +4,7 @@ using UnityEngine;
 using Random = UnityEngine.Random;
 
 
-    public class Spawner : MonoBehaviour
+    public class EnemySpawner : MonoBehaviour
     {
 
         [SerializeField]

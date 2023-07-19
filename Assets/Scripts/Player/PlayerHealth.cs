@@ -37,9 +37,10 @@ public class PlayerHealth : MonoBehaviour, ISpaceship, IDamagable
             _weaponSystem.Init(_battleIdentity);
         }
 
-        public void ApplyDamage(IDamageDealer damageDealer)
-        {
-	        ApplyHealth(-(float)damageDealer.Damage);
+	    public void GetHit (IDamageDealer HitDealer)
+	    {
+		    Debug.Log($"GotHit by {HitDealer.name}");
+	        ApplyHealth(-(float)HitDealer.Damage);
 
             if (_shipData.Health <= 0)
             {

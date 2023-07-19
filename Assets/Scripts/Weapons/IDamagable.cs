@@ -6,7 +6,7 @@
     
         UnitBattleIdentity BattleIdentity { get; }
 
-        void ApplyDamage(IDamageDealer damageDealer);
+	    void GetHit(IDamageDealer damageDealer);
 
     }
 

@@ -12,13 +12,12 @@ using UnityEngine;
 
         [SerializeField] private FireRateUI[] _weaponsUI;
 
-        [SerializeField] private Spawner[] spawners;
+	    [SerializeField] private EnemySpawner[] enemySpawner;
 
         [SerializeField] private WeaponsUI weaponsUI;
 
         [SerializeField] private BonusSpawner bonusSpawner;
 
-        [SerializeField] private float bonusDropChance = 0.1f;
 
 	    [SerializeField] private PlayerWeapon playerWeapon;
 	    [SerializeField] private PlayerHealth playerHealth;
@@ -48,7 +47,7 @@ using UnityEngine;
             }
 
             playerHealth.OnDie += PlayerDeath;
-            playerHealth.OnChangeHealth += _healthUI.UpdateText;
+	        //playerHealth.OnChangeHealth += _healthUI.UpdateText;
             playerWeapon.OnChangeCooldown += weaponsUI.UpdateFireRate;
 
             playerHealth.ApplyHealth(0);
@@ -57,7 +56,7 @@ using UnityEngine;
 
         private void EnableSpawners()
         {
-            foreach (Spawner spawner in spawners)
+            foreach (EnemySpawner spawner in enemySpawner)
             {
                 spawner.StartSpawn();
             }
@@ -66,15 +65,20 @@ using UnityEngine;
 
 	    public void EnemyDeath(int addingPoints, Transform enemyTransform)
         {
-            UpdatePoints(addingPoints);
-            if(Random.Range(0f,1f) <= bonusDropChance)
-                bonusSpawner?.SpawnRandomBonus(enemyTransform);
+	        UpdatePoints(addingPoints);
+            
+	        foreach (Bonus bonus in bonusSpawner.bonusPrefabs)
+	        {
+		        if(Random.Range(0f,1f) <= bonus._dropChance)
+			        bonusSpawner?.SpawnRandomBonus(enemyTransform);
+	        }
+
         }
 
 
 	    public void UpdatePoints(int addingPoints)
 	    {
-		    //
+		    
             playerHealth.gameObject.GetComponent<ShipData>().Points += addingPoints;
             _pointsView.UpdateText(playerHealth.gameObject.GetComponent<ShipData>().Points);
         }
@@ -85,7 +89,7 @@ using UnityEngine;
         {
             weaponsUI.ClearAllWeapons();
 
-            foreach (Spawner spawner in spawners)
+	        foreach (EnemySpawner spawner in enemySpawner)
             {
                 spawner.StopSpawn();
             }

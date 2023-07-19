@@ -34,7 +34,7 @@ using UnityEngine;
             if (damagableObject != null 
                 && damagableObject.BattleIdentity != BattleIdentity)
             {
-                damagableObject.ApplyDamage(this);
+                damagableObject.GetHit(this);
             }
         }
         

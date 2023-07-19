@@ -3,8 +3,15 @@ using System.Collections;
 
     public abstract class Bonus : MonoBehaviour
     {
+	    //[SerializeField]
+	    //public static int BonusInstanceCount = 0;
+    	
         [SerializeField]
 	    protected MovementSystem _movementSystem;
+	    
+	    [SerializeField]
+	    public float _dropChance = 0.1f;
+
 
 
         public void Update()
@@ -26,5 +33,8 @@ using System.Collections;
                 Destroy(gameObject);
             }
         }
+        
+        
+	    
     }
 

@@ -432,6 +432,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6910651213156479276}
   - component: {fileID: 6910651213156479315}
+  - component: {fileID: 327284541242260507}
   - component: {fileID: 6910651213156479313}
   - component: {fileID: 6910651213156479314}
   - component: {fileID: 6910651213156479312}
@@ -481,6 +482,20 @@ MonoBehaviour:
   _weaponSystem: {fileID: 6910651213156479312}
   _shipData: {fileID: 114378782528696678}
   _battleIdentity: 1
+--- !u!114 &327284541242260507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6910651213156479279}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f25e89d9930d204097a76295bd4c4e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _weaponSystem: {fileID: 6910651213156479312}
+  playerHealth: {fileID: 6910651213156479315}
 --- !u!114 &6910651213156479313
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -562,6 +577,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _points: 0
   _health: 3
+  _maxHealth: 0
 --- !u!50 &50979200965308076
 Rigidbody2D:
   serializedVersion: 4
