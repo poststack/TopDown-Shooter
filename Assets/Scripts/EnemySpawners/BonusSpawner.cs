@@ -2,9 +2,7 @@
 using System.Collections;
 
 
-/// <summary>
-/// Класс который будет спавнить бонусы на позициях умерших врагов
-/// </summary>
+
 public class BonusSpawner : MonoBehaviour
 {
     [SerializeField]

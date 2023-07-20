@@ -5,7 +5,10 @@
         
         UnitBattleIdentity BattleIdentity { get; }
 
-        float Damage { get; }
+	    float Damage { get; }
+        
+	    //GameObject getGameObject();
+
 
     }
 

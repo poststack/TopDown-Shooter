@@ -4,9 +4,7 @@ using TMPro;
 using UnityEngine;
 
 
-/// <summary>
-/// Класс отображения скорострельности корабля
-/// </summary>
+
     public class FireRateUI : MonoBehaviour
     {
         [SerializeField] private TMP_Text _fireRateText;

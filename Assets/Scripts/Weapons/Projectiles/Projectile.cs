@@ -38,6 +38,9 @@ using UnityEngine;
             }
         }
         
-        protected abstract void Move(float speed);
+	    protected abstract void Move(float speed);
+        
+	    //protected GameObject getGameObject();
+        
     }
 

@@ -20,7 +20,7 @@ using UnityEngine;
 
 
 	    [SerializeField] private PlayerWeapon playerWeapon;
-	    [SerializeField] private PlayerHealth playerHealth;
+	    [SerializeField] private Ship playerHealth;
 
         public static GameManager Instance;
 
@@ -47,11 +47,11 @@ using UnityEngine;
             }
 
             playerHealth.OnDie += PlayerDeath;
-	        //playerHealth.OnChangeHealth += _healthUI.UpdateText;
+	        playerHealth.OnChangeHealth += _healthUI.UpdateText;
             playerWeapon.OnChangeCooldown += weaponsUI.UpdateFireRate;
 
             playerHealth.ApplyHealth(0);
-            UpdatePoints(0);
+	        UpdatePointsZero(0);
         }
 
         private void EnableSpawners()
@@ -63,9 +63,10 @@ using UnityEngine;
         }
 
 
+
 	    public void EnemyDeath(int addingPoints, Transform enemyTransform)
         {
-	        UpdatePoints(addingPoints);
+	        UpdatePoints(addingPoints,enemyTransform);
             
 	        foreach (Bonus bonus in bonusSpawner.bonusPrefabs)
 	        {
@@ -76,11 +77,17 @@ using UnityEngine;
         }
 
 
-	    public void UpdatePoints(int addingPoints)
+	    public void UpdatePointsZero(int totalPoints)
 	    {
-		    
-            playerHealth.gameObject.GetComponent<ShipData>().Points += addingPoints;
-            _pointsView.UpdateText(playerHealth.gameObject.GetComponent<ShipData>().Points);
+		    _pointsView.UpdateText(totalPoints);
+
+	    }
+
+	    public void UpdatePoints(int addingPoints, Transform scoringSpot)
+	    {
+		    Debug.Log( $"UpdatePoints(int { addingPoints},int  { scoringSpot})");
+		    playerHealth.gameObject.GetComponent<PlayerData>().Points += addingPoints;
+		    _pointsView.UpdateText(playerHealth.gameObject.GetComponent<PlayerData>().Points, addingPoints, scoringSpot );
         }
 
 
