@@ -34,7 +34,9 @@ using UnityEngine;
 	        var proj = Instantiate(_projectile, _barrel.position, _barrel.rotation);
         	Instantiate(
 	        	EffectManager.Instance.muzzleFlashPrefab,
-	        	_barrel.position, _barrel.rotation);
+	        	_barrel.position, _barrel.rotation)
+	        	.transform.parent = 
+	        	gameObject.transform;
             proj.Init(_battleIdentity);
             StartCoroutine(Reload(_cooldown));
         }

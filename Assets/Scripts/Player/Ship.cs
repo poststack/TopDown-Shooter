@@ -48,8 +48,10 @@ public class Ship : MonoBehaviour, ISpaceship, IDamagable
 
             if (_playerData.Health <= 0)
             {
-                OnDie?.Invoke(_playerData.Points, transform);
-                Destroy(gameObject);
+            	_shipEffects.Death();
+	            OnDie?.Invoke(_playerData.Points, transform);
+            	//GetComponent<Ship>().enabled = false;
+            	Destroy(gameObject,0.01f);
             }
         }
 
@@ -58,7 +60,7 @@ public class Ship : MonoBehaviour, ISpaceship, IDamagable
 		    
 		    _playerData.Health += addingHealth;
 		    OnChangeHealth?.Invoke(_playerData.Health, _playerData.MaxHealth);
-		    //Debug.Log($"ApplyHealth {addingHealth} " + Environment.NewLine + $"_playerData.Health {_playerData.Health}");
+		    Debug.Log($"ApplyHealth {addingHealth} " + Environment.NewLine + $"_playerData.Health {_playerData.Health}");
 		    if (_playerData.Health < _playerData.MaxHealth)
 		    {
 		    	_shipEffects.TurnDamageEffectOn( _playerData.Health/_playerData.MaxHealth);

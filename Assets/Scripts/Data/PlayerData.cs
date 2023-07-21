@@ -22,7 +22,13 @@ using System.Collections;
 	    public float Health
         {
             get { return _health; }
-            set { _health = value; }
+	        set 
+		    { 
+			    _health = value; 
+			    if (_health > _maxHealth)
+				    _health =_maxHealth;
+
+	        }
         }
         
 	    public float MaxHealth

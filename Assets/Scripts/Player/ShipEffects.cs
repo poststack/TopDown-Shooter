@@ -51,7 +51,9 @@ public class ShipEffects : MonoBehaviour
 	public void Death()
 	{
 		GameObject obj = Instantiate(ExplosionEffectPrefab, gameObject.transform);
-		Destroy(obj,timeToDestroy);
+		obj.transform.parent =
+			EffectManager.Instance.transform;
+		//Destroy(obj,timeToDestroy);
 		obj.transform.Rotate(
 			new Vector3(
 			UnityEngine.Random.Range(0,360),
