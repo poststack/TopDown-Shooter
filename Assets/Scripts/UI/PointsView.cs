@@ -28,7 +28,7 @@ using DamageNumbersPro;
 
 	    public void UpdateText(int totalPoints, int addedPoints, Transform scoringSpot)
 	    {
-	    	Debug.Log ("UpdateText");
+	    	//Debug.Log ("UpdateText");
 	    	
 		    GameObject obj = Instantiate(NumberPrefab, scoringSpot.position, Quaternion.identity);
 		    obj.name = "ScoreNumber";

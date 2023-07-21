@@ -3,6 +3,8 @@ using System.Collections;
 
     public class HealthBonus : Bonus
     {
+    	
+    	
         [SerializeField]
         private int addingHealth = 1;
 

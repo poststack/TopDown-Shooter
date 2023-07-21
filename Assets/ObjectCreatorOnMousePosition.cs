@@ -4,7 +4,8 @@ using UnityEngine;
 using DamageNumbersPro;
 
 
-public class ObjectCreatorOnMousePosition : MonoBehaviour
+public class ObjectCreatorOnMousePosition : Singleton<ObjectCreatorOnMousePosition>
+
 {
 	public GameObject objectPrefab;
 	public Transform objectPrefabToFollow;
@@ -15,7 +16,7 @@ public class ObjectCreatorOnMousePosition : MonoBehaviour
 	{
 
 
-		GameObject obj = Instantiate(objectPrefab, objectPrefabToFollow.position, Quaternion.identity);
+		//GameObject obj = Instantiate(objectPrefab, objectPrefabToFollow.position, Quaternion.identity);
 	}
 	void Update()
 	{
@@ -33,5 +34,10 @@ public class ObjectCreatorOnMousePosition : MonoBehaviour
 
 			
 		}
+	}
+	
+	public void SpawnObject(Transform position)
+	{
+		GameObject obj = Instantiate(objectPrefab, position.transform.position, Quaternion.identity);
 	}
 }

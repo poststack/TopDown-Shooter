@@ -18,10 +18,7 @@ using System.Linq;
             _weapons.ForEach(w => w.TriggerFire());
         }
 
-        /// <summary>
-        /// Домножает параметр кулдауна каждому орудию
-        /// </summary>
-        /// <param name="multiplyer"></param>
+
         public void AllChangeCooldown(float multiplyer)
         {
             _weapons.ForEach(w => w.ChangeCooldown(multiplyer));

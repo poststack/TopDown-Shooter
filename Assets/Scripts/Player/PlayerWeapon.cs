@@ -12,7 +12,7 @@ public class PlayerWeapon : MonoBehaviour
 	private WeaponSystem _weaponSystem;
 	
 	[SerializeField]
-	protected PlayerHealth playerHealth;
+	protected Ship playerHealth;
 	
 	public event Action<List<Weapon>> OnChangeCooldown;
 

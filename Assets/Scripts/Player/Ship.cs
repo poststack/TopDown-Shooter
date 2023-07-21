@@ -14,10 +14,14 @@ public class Ship : MonoBehaviour, ISpaceship, IDamagable
         private MovementSystem _movementSystem;
     
         [SerializeField]
-        private WeaponSystem _weaponSystem;
+	    private WeaponSystem _weaponSystem;
+        
+	    [SerializeField]
+	    private ShipEffects _shipEffects;
 
         [SerializeField]
 	    private PlayerData _playerData;
+	    
 
         [SerializeField]
         private UnitBattleIdentity _battleIdentity;
@@ -55,6 +59,14 @@ public class Ship : MonoBehaviour, ISpaceship, IDamagable
 		    _playerData.Health += addingHealth;
 		    OnChangeHealth?.Invoke(_playerData.Health, _playerData.MaxHealth);
 		    //Debug.Log($"ApplyHealth {addingHealth} " + Environment.NewLine + $"_playerData.Health {_playerData.Health}");
+		    if (_playerData.Health < _playerData.MaxHealth)
+		    {
+		    	_shipEffects.TurnDamageEffectOn( _playerData.Health/_playerData.MaxHealth);
+		    }
+		    else
+		    {
+		    	_shipEffects.TurnDamageEffectOff();
+		    }
 
 	    }
         

@@ -64,11 +64,12 @@ using UnityEngine;
 
 
 
-	    public void EnemyDeath(int addingPoints, Transform enemyTransform)
-        {
+	    public void EnemyDeath(float addingPoints, Transform enemyTransform)
+	    {
+		    //ObjectCreatorOnMousePosition.Instance.SpawnObject(enemyTransform);
 	        UpdatePoints(addingPoints,enemyTransform);
             
-	        foreach (Bonus bonus in bonusSpawner.bonusPrefabs)
+		    foreach (Bonus bonus in bonusSpawner.BonusPrefabs)
 	        {
 		        if(Random.Range(0f,1f) <= bonus._dropChance)
 			        bonusSpawner?.SpawnRandomBonus(enemyTransform);
@@ -83,11 +84,13 @@ using UnityEngine;
 
 	    }
 
-	    public void UpdatePoints(int addingPoints, Transform scoringSpot)
+	    public void UpdatePoints(float addingPoints, Transform scoringSpot)
 	    {
-		    Debug.Log( $"UpdatePoints(int { addingPoints},int  { scoringSpot})");
-		    playerHealth.gameObject.GetComponent<PlayerData>().Points += addingPoints;
-		    _pointsView.UpdateText(playerHealth.gameObject.GetComponent<PlayerData>().Points, addingPoints, scoringSpot );
+	    	
+	    	
+		    //Debug.Log( $"UpdatePoints(int { addingPoints},int  { scoringSpot})");
+		    playerHealth.gameObject.GetComponent<PlayerData>().Points += (int)addingPoints;
+		    _pointsView.UpdateText(playerHealth.gameObject.GetComponent<PlayerData>().Points, (int)addingPoints, scoringSpot );
         }
 
 

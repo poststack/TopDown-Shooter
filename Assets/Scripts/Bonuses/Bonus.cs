@@ -10,7 +10,7 @@ using System.Collections;
 	    protected MovementSystem _movementSystem;
 	    
 	    [SerializeField]
-	    public float _dropChance = 0.1f;
+	    public float _dropChance;
 
 
 

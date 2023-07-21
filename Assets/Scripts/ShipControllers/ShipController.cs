@@ -4,6 +4,7 @@
     public abstract class ShipController : MonoBehaviour
     {
 
+	    [SerializeField]
         private ISpaceship _spaceship;
 
 

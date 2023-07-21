@@ -8,15 +8,16 @@ public class PlayerBonusHandler : MonoBehaviour
 {
 	
 	[SerializeField]
-	protected PlayerHealth playerHealth;
-	
+	protected Ship playerHealth;
+	[SerializeField]
+	protected PlayerWeapon playerWeapon;	
 
 
 
-	public void StartFireRateBonus(float multiplyer, float time)
+	public void StartFireRateBonus(float multiplier , float time)
 	{
-		Debug.Log($"StartFireRateBonus(float {multiplyer}, float {time})");
-		//StartCoroutine(FireRateBonus(multiplyer, time));
+		Debug.Log($"StartFireRateBonus(float {multiplier}, float {time})");
+		StartCoroutine(playerWeapon.FireRateBonus(multiplier, time));
 	}
 
 

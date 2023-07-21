@@ -49,7 +49,7 @@ using Random = UnityEngine.Random;
             {
                 GameObject spawnShip = Instantiate(_object, transform.position, transform.rotation, _parent);
 
-	            //spawnShip.GetComponent<PlayerHealth>().OnDie += GameManager.Instance.EnemyDie;
+	            spawnShip.GetComponent<Ship>().OnDie += GameManager.Instance.EnemyDeath;
                 yield return new WaitForSeconds(Random.Range(_spawnPeriodRange.x, _spawnPeriodRange.y));
             }
         }
