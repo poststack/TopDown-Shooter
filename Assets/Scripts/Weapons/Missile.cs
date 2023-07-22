@@ -11,10 +11,9 @@ public class Missile : Projectile
 	private void Start()
 	{
 		startPos = transform.position;
-		//speed += (float)UnityEngine.Random.Range(-0.5,0.5);
-		//frequency += (float)UnityEngine.Random.Range(-0.5,0.5);
-		float randomValue = Random.Range(0f, 5f);
-		amplitude += randomValue;
+		speed += Random.Range(-2,2);
+		frequency += Random.Range(-5f, 5f);
+		amplitude += Random.Range(-5f, 5f);
 
 	}
 

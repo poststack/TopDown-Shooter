@@ -305,6 +305,7 @@ MonoBehaviour:
   - {fileID: 7905828556962777945}
   - {fileID: 3200914318129950673}
   - {fileID: 8344518258479785526}
+  _weaponsHolder: {fileID: 6910651214060967067}
 --- !u!61 &2540544495500081184
 BoxCollider2D:
   m_ObjectHideFlags: 0

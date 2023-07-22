@@ -61,9 +61,9 @@ public class Ship : MonoBehaviour, ISpaceship, IDamagable
 		    _playerData.Health += addingHealth;
 		    OnChangeHealth?.Invoke(_playerData.Health, _playerData.MaxHealth);
 		    Debug.Log($"ApplyHealth {addingHealth} " + Environment.NewLine + $"_playerData.Health {_playerData.Health}");
-		    if (_playerData.Health < _playerData.MaxHealth)
+		    if (_playerData.Health/_playerData.MaxHealth < 0.5f)
 		    {
-		    	_shipEffects.TurnDamageEffectOn( _playerData.Health/_playerData.MaxHealth);
+		    	_shipEffects.TurnDamageEffectOn( 0.5f);
 		    }
 		    else
 		    {
