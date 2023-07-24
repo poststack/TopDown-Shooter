@@ -35,6 +35,7 @@ public class ItemScript : MonoBehaviour, IPointerDownHandler, IBeginDragHandler,
 	    if (occupidedSlot != null)
 	    {
 		    Debug.Log($"Uninstalled {eventData.pointerDrag.name} from {gameObject.name}");
+		    occupidedSlot.GetComponent<ItemSlot>().UninstallItem();
 	    	occupidedSlot = null;
 	    }
     }

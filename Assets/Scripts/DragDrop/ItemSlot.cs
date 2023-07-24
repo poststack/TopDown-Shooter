@@ -16,6 +16,14 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 
 public class ItemSlot : MonoBehaviour, IDropHandler {
+	
+	[SerializeField]
+	private WeaponSystem _weaponSystem;
+	
+	
+	public ItemScript carriedObject;
+	public Transform ConnectedWeaponHolder;
+	public GameObject installedWeapon;
 
     public void OnDrop(PointerEventData eventData) {
         Debug.Log("OnDrop");
@@ -30,6 +38,21 @@ public class ItemSlot : MonoBehaviour, IDropHandler {
 	private void InstallItem(GameObject item)
 	{
 		item.GetComponent<ItemScript>().occupidedSlot = gameObject.GetComponent<ItemSlot>();
+		carriedObject = item.GetComponent<ItemScript>();
+		
+		GameObject weapon = Instantiate(
+			item.gameObject.transform.GetChild(1).gameObject,
+			ConnectedWeaponHolder.position,
+			ConnectedWeaponHolder.rotation);	
+		weapon.transform.parent = ConnectedWeaponHolder.parent;
+		installedWeapon = weapon;
+		_weaponSystem.ReinstallWeapons();
+	}
+	
+	public void UninstallItem()
+	{
+		carriedObject = null;
+		Destroy(installedWeapon);
 	}
 
 }

@@ -13,18 +13,24 @@ using System.Linq;
 	    // Start is called on the frame when a script is enabled just before any of the Update methods is called the first time.
 	    protected void Start()
 	    {
+
+	    }
+	    
+	    public void ReinstallWeapons()
+	    {
 		    _weaponsHolder = gameObject.transform.Find("Weapons");
 
 	    	_weapons.Clear();
 		    foreach (Transform child in _weaponsHolder)
 		    {		
-		    	Debug.Log($"child {child}");
+		    	//Debug.Log($"child {child}");
 			    if (child.TryGetComponent<Weapon>(out Weapon _thisWeapon))
 			    {
-			    	Debug.Log($"_thisWeapon {_thisWeapon}");
+			    	//Debug.Log($"_thisWeapon {_thisWeapon}");
 				    _weapons.Add(_thisWeapon);
 			    }
 		    }
+		    Init(UnitBattleIdentity.Ally);
 	    }
 
         public void Init(UnitBattleIdentity battleIdentity)

@@ -27,6 +27,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1.26, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -46,4 +47,4 @@ MonoBehaviour:
   _projectile: {fileID: 3274570344616576306, guid: a0016ad46649e8c409ee27a3ba0dfdd4,
     type: 3}
   _barrel: {fileID: 2543782742246006013}
-  _cooldown: 0.1
+  _cooldown: 0.8
